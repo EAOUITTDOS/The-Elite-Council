@@ -1,0 +1,15 @@
+chmod +x run_elite_council.sh
+./run_elite_council.sh
+
+# Query the elite council
+curl -X POST http://localhost:8000/decide \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Which repository has the most optimized authentication system?"}'
+
+# Search all code
+curl -X POST http://localhost:8000/search \
+  -H "Content-Type: application/json" \
+  -d '{"pattern":"authentication"}'
+
+# Get stats
+curl http://localhost:8000/stats
